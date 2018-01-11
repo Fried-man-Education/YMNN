@@ -15,8 +15,8 @@ namespace YoMamaNeuralNetwork {
                 Console.WriteLine("ITERATIONS: " + z);
 
                 Random Random_Number = new Random();
-                int Total_Lines = File.ReadAllLines("C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YoMamaNeuralNetwork/YMNN Training Data.txt").Length;
-                StreamReader Joke_List = new StreamReader("C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YoMamaNeuralNetwork/YMNN Training Data.txt");
+                int Total_Lines = File.ReadAllLines("C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YMNN/YMNN Training Data.txt").Length;
+                StreamReader Joke_List = new StreamReader("C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YMNN/YMNN Training Data.txt");
                 String Sample_Joke = null;
                 int Random_Line = Random_Number.Next(1, Total_Lines + 1);
                 for (int i = 1; i <= Random_Line; i++) //Grabbing random line
@@ -43,7 +43,7 @@ namespace YoMamaNeuralNetwork {
 
                 for (int i = 1; i <= 280; i++) // 1st Weights
                 { 
-                    string FilePath = "C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YoMamaNeuralNetwork/YMNN Weights/Weights for sum #" + i;
+                    string FilePath = "C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YMNN/YMNN Weights/Weights for sum #" + i;
                     if (File.Exists(FilePath) == false) //If .txt does not exist create random weights
                     {
                         FileStream Weights = File.Create(FilePath);
@@ -61,7 +61,7 @@ namespace YoMamaNeuralNetwork {
                 double[] Sum = new double[280 + 1];
                 for (int i = 1; i <= 280; i++) // Creating (Sum #1 / Hidden Layer #1)
                 {
-                    string FilePath = "C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YoMamaNeuralNetwork/YMNN Weights/Weights for sum #" + i;
+                    string FilePath = "C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YMNN/YMNN Weights/Weights for sum #" + i;
                     StreamReader Weights_Read = new StreamReader(FilePath);
                     for (int a = 1; a <= 280; a++) //This is really important (IT'S GUCCI?)
                     { 
@@ -76,11 +76,11 @@ namespace YoMamaNeuralNetwork {
                     Final_Nodes[i] = Convert_Numbers(Sum[i]);
                 }
 
-                double Learning_Rate = 1f;
+                double Learning_Rate = .1f;
                 for (int i = 1; i <= 280; i++) //Adjusting weights (THE LEARNING PART) (Sample_Joke.Length)
                 { 
                     double Error = Initial_Nodes[i] - Convert_Letters(Final_Nodes[i]);
-                    string FilePath = "C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YoMamaNeuralNetwork/YMNN Weights/Weights for sum #" + i;
+                    string FilePath = "C:/Users/mrchargerlover/Documents/Programming Archive/Visual Studio C#/YMNN/YMNN Weights/Weights for sum #" + i;
                     double[] Initial_Weights = new double[280 + 1];
                     Initial_Weights = Get_Weights(FilePath);
                     StreamWriter Weights_Write = new StreamWriter(FilePath);
@@ -294,8 +294,8 @@ namespace YoMamaNeuralNetwork {
             }
             else
             {
-                Console.WriteLine("");
-                Console.WriteLine("INVALID CHARACTER: '" + Character + "'");
+                //Console.WriteLine("");
+                //Console.WriteLine("INVALID CHARACTER: '" + Character + "'");
                 //Console.ReadKey();
             }
             Result = Result / 46.0;
@@ -306,132 +306,132 @@ namespace YoMamaNeuralNetwork {
             string Result = "";
             Number = 1.0 / (1 + Math.Pow(Math.E, -1 * Number)); //SIGMOID FUNCTION
 
-            if (Number * 26.0 <= .5) {
+            if (Number * 46.0 <= .5) {
                 Result = " ";
-            }else if (Number * 26.0 <= 1.5) {
+            }else if (Number * 46.0 <= 1.5) {
                 Result = "a";
-            }else if (Number * 26.0 <= 2.5) {
+            }else if (Number * 46.0 <= 2.5) {
                 Result = "b";
-            }else if (Number * 26.0 <= 3.5) {
+            }else if (Number * 46.0 <= 3.5) {
                 Result = "c";
-            }else if (Number * 26.0 <= 4.5) {
+            }else if (Number * 46.0 <= 4.5) {
                 Result = "d";
-            }else if (Number * 26.0 <= 5.5) {
+            }else if (Number * 46.0 <= 5.5) {
                 Result = "e";
-            }else if (Number * 26.0 <= 6.5) {
+            }else if (Number * 46.0 <= 6.5) {
                 Result = "f";
-            }else if (Number * 26.0 <= 7.5) {
+            }else if (Number * 46.0 <= 7.5) {
                 Result = "g";
-            }else if (Number * 26.0 <= 8.5) {
+            }else if (Number * 46.0 <= 8.5) {
                 Result = "h";
-            }else if (Number * 26.0 <= 9.5) {
+            }else if (Number * 46.0 <= 9.5) {
                 Result = "i";
-            }else if (Number * 26.0 <= 10.5) {
+            }else if (Number * 46.0 <= 10.5) {
                 Result = "j";
-            }else if (Number * 26.0 <= 11.5) {
+            }else if (Number * 46.0 <= 11.5) {
                 Result = "k";
-            }else if (Number * 26.0 <= 12.5) {
+            }else if (Number * 46.0 <= 12.5) {
                 Result = "l";
-            }else if (Number * 26.0 <= 13.5) {
+            }else if (Number * 46.0 <= 13.5) {
                 Result = "m";
-            }else if (Number * 26.0 <= 14.5) {
+            }else if (Number * 46.0 <= 14.5) {
                 Result = "n";
-            }else if (Number * 26.0 <= 15.5) {
+            }else if (Number * 46.0 <= 15.5) {
                 Result = "o";
-            }else if (Number * 26.0 <= 16.5) {
+            }else if (Number * 46.0 <= 16.5) {
                 Result = "p";
-            }else if (Number * 26.0 <= 17.5) {
+            }else if (Number * 46.0 <= 17.5) {
                 Result = "q";
-            }else if (Number * 26.0 <= 18.5) {
+            }else if (Number * 46.0 <= 18.5) {
                 Result = "r";
-            }else if (Number * 26.0 <= 19.5) {
+            }else if (Number * 46.0 <= 19.5) {
                 Result = "s";
-            }else if (Number * 26.0 <= 20.5) {
+            }else if (Number * 46.0 <= 20.5) {
                 Result = "t";
-            }else if (Number * 26.0 <= 21.5) {
+            }else if (Number * 46.0 <= 21.5) {
                 Result = "u";
-            }else if (Number * 26.0 <= 22.5) {
+            }else if (Number * 46.0 <= 22.5) {
                 Result = "v";
-            }else if (Number * 26.0 <= 23.5) {
+            }else if (Number * 46.0 <= 23.5) {
                 Result = "w";
-            }else if (Number * 26.0 <= 24.5) {
+            }else if (Number * 46.0 <= 24.5) {
                 Result = "x";
-            }else if (Number * 26.0 <= 25.5) {
+            }else if (Number * 46.0 <= 25.5) {
                 Result = "y";
             }
-            else if (Number * 27.0 <= 26.5)
+            else if (Number * 46.0 <= 26.5)
             {
                 Result = ".";
             }
-            else if (Number * 28.0 <= 27.5)
+            else if (Number * 46.0 <= 27.5)
             {
                 Result = "!";
             }
-            else if (Number * 29.0 <= 28.5)
+            else if (Number * 46.0 <= 28.5)
             {
                 Result = "?";
             }
-            else if (Number * 30.0 <= 29.5)
+            else if (Number * 46.0 <= 29.5)
             {
                 Result = "'";
             }
-            else if (Number * 31.0 <= 30.5)
+            else if (Number * 46.0 <= 30.5)
             {
                 Result = ",";
             }
-            else if (Number * 32.0 <= 31.5)
+            else if (Number * 46.0 <= 31.5)
             {
                 Result = "/";
             }
-            else if (Number * 33.0 <= 32.5)
+            else if (Number * 46.0 <= 32.5)
             {
                 Result = "-";
             }
-            else if (Number * 34.0 <= 33.5)
+            else if (Number * 46.0 <= 33.5)
             {
                 Result = "+";
             }
-            else if (Number * 35.0 <= 34.5)
+            else if (Number * 46.0 <= 34.5)
             {
                 Result = ",";
             }
-            else if (Number * 36.0 <= 35.5)
+            else if (Number * 46.0 <= 35.5)
             {
                 Result = "0";
             }
-            else if (Number * 37.0 <= 36.5)
+            else if (Number * 46.0 <= 36.5)
             {
                 Result = "1";
             }
-            else if (Number * 38.0 <= 37.5)
+            else if (Number * 46.0 <= 37.5)
             {
                 Result = "2";
             }
-            else if (Number * 39.0 <= 38.5)
+            else if (Number * 46.0 <= 38.5)
             {
                 Result = "3";
             }
-            else if (Number * 40.0 <= 39.5)
+            else if (Number * 46.0 <= 39.5)
             {
                 Result = "4";
             }
-            else if (Number * 41.0 <= 40.5)
+            else if (Number * 46.0 <= 40.5)
             {
                 Result = "5";
             }
-            else if (Number * 42.0 <= 41.5)
+            else if (Number * 46.0 <= 41.5)
             {
                 Result = "6";
             }
-            else if (Number * 43.0 <= 42.5)
+            else if (Number * 46.0 <= 42.5)
             {
                 Result = "7";
             }
-            else if (Number * 44.0 <= 43.5)
+            else if (Number * 46.0 <= 43.5)
             {
                 Result = "8";
             }
-            else if (Number * 45.0 <= 44.5)
+            else if (Number * 46.0 <= 44.5)
             {
                 Result = "9";
             }
