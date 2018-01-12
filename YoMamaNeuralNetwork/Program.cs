@@ -76,7 +76,7 @@ namespace YoMamaNeuralNetwork {
                     Final_Nodes[i] = Convert_Numbers(Sum[i]);
                 }
 
-                double Learning_Rate = .1f;
+                double Learning_Rate = .01f;
                 for (int i = 1; i <= 280; i++) //Adjusting weights (THE LEARNING PART) (Sample_Joke.Length)
                 { 
                     double Error = Initial_Nodes[i] - Convert_Letters(Final_Nodes[i]);
